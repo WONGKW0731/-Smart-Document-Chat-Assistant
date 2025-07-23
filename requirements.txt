@@ -1,0 +1,11 @@
+Flask
+pydub
+SpeechRecognition
+Werkzeug
+PyPDF2
+Pillow
+groq
+google-generativeai
+cohere
+ffmpeg-python
+gunicorn       
