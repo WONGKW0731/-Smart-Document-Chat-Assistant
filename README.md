@@ -1,86 +1,159 @@
-# How to Install FFmpeg 🎬
+````markdown
+# Smart Document Chat Assistant 🤖
 
-A straightforward guide to installing FFmpeg, the powerful multimedia framework, on your operating system.
+This project is a versatile, web-based chat assistant built with Flask that allows you to interact with various types of documents using powerful Large Language Models (LLMs). You can upload a PDF, an image, or an audio file and ask questions about its content. The application supports switching between multiple AI providers: **Google Gemini**, **Cohere**, and **Groq**.
 
-## Table of Contents
-* [Windows](#windows-)
-* [macOS](#macos-)
-* [Linux](#linux-)
-
----
-
-## Windows 💻
-
-### 1. Download FFmpeg
--   Go to the official FFmpeg website: [ffmpeg.org/download.html](https://ffmpeg.org/download.html).
--   Choose a Windows build from a trusted source like [gyan.dev](https://www.gyan.dev/ffmpeg/builds/).
-
-### 2. Extract the Files
--   Download the ZIP archive.
--   Extract its contents to a memorable location, such as `C:\ffmpeg`.
-
-### 3. Add FFmpeg to PATH
-1.  Open the **Start Menu**, type `Environment Variables`, and select **Edit the system environment variables**.
-2.  In the System Properties window, click the **Environment Variables...** button.
-3.  Under the **System Variables** section, find and select the `Path` variable, then click **Edit...**.
-4.  Click **New** and add the path to the `bin` folder inside your FFmpeg directory (e.g., `C:\ffmpeg\bin`).
-5.  Click **OK** to close all windows.
-
-### 4. Verify the Installation
--   Open a new Command Prompt or PowerShell window and run:
-    ```bash
-    ffmpeg -version
-    ```
--   You should see the FFmpeg version information displayed.
+![image](https://i.imgur.com/your-screenshot-filename.png)
+*(It's recommended to replace the link above with a screenshot or GIF of your application in action!)*
 
 ---
 
-## macOS 🍎
+## ✨ Features
 
-### 1. Install with Homebrew (Recommended)
--   If you don't have Homebrew, install it first from [brew.sh](https://brew.sh/).
--   Open your **Terminal** and run the following command:
+* **Multi-Modal Interaction**: Chat with different file types.
+    * [cite_start]📖 **PDFs**: Upload a PDF and ask questions about its text content[cite: 1].
+    * [cite_start]🖼️ **Images**: Upload an image and use vision-enabled models to analyze it[cite: 1].
+    * [cite_start]🎤 **Audio**: Upload common audio formats (`.mp3`, `.wav`, etc.), have them automatically transcribed, and then ask questions about the transcription[cite: 1].
+* [cite_start]**Dynamic AI Switching**: Seamlessly switch between **Gemini**, **Cohere**, and **Groq** APIs to compare responses or use your preferred model[cite: 1].
+* [cite_start]**Chat History**: Your conversations are saved in browser sessions, allowing you to resume previous chats[cite: 1].
+* [cite_start]**User-Friendly Interface**: A clean, modern UI with drag-and-drop file uploads, file previews, and a real-time chat display[cite: 1].
+
+---
+
+## 🛠️ Tech Stack
+
+* [cite_start]**Backend**: Flask (Python) [cite: 1]
+* [cite_start]**Frontend**: HTML, CSS, JavaScript (served directly from Flask) [cite: 1]
+* **AI Models**:
+    * [cite_start]`google-generativeai` for Google Gemini [cite: 1]
+    * [cite_start]`cohere` for Cohere [cite: 1]
+    * [cite_start]`groq` for Groq [cite: 1]
+* **Core Python Libraries**:
+    * [cite_start]`PyPDF2` for PDF text extraction[cite: 1].
+    * [cite_start]`Pillow` for image processing[cite: 1].
+    * [cite_start]`pydub` & `SpeechRecognition` for audio processing and transcription[cite: 1].
+
+---
+
+## ⚠️ Important: Before You Start
+
+This application relies on external services and a crucial local dependency. Please review these points carefully before installation.
+
+### 1. API Keys
+
+[cite_start]You **must** have valid API keys for the services you intend to use (Gemini, Cohere, Groq)[cite: 1]. The application will not work without them.
+
+### 2. FFmpeg Installation
+
+[cite_start]**FFmpeg** is a critical dependency required for processing audio files (converting them to a compatible format for transcription)[cite: 1]. It must be installed separately on your system.
+
+* **Windows**:
+    1.  Download a static build from [ffmpeg.org](https://ffmpeg.org/download.html).
+    2.  Extract the folder (e.g., to `C:\ffmpeg`).
+    3.  Add the `bin` directory (e.g., `C:\ffmpeg\bin`) to your system's **PATH** environment variable.
+
+* **macOS** (using Homebrew):
     ```bash
     brew install ffmpeg
     ```
--   Homebrew will handle the installation and path configuration automatically.
 
-### 2. Verify the Installation
--   In the Terminal, run:
+* **Linux** (using apt for Debian/Ubuntu):
     ```bash
-    ffmpeg -version
+    sudo apt update && sudo apt install ffmpeg
     ```
--   The installed version details will be displayed if the setup was successful.
 
 ---
 
-## Linux 🐧
+## 🚀 Getting Started
 
-### 1. Install from a Package Manager
--   Open your terminal and use the command corresponding to your distribution.
+Follow these steps to set up and run the project on your local machine.
 
--   **Debian/Ubuntu:**
-    ```bash
-    sudo apt update
-    sudo apt install ffmpeg
-    ```
+### 1. Clone the Repository
 
--   **Fedora:**
-    ```bash
-    sudo dnf install ffmpeg
-    ```
+```bash
+git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+cd your-repo-name
+````
 
--   **Arch Linux:**
-    ```bash
-    sudo pacman -S ffmpeg
-    ```
+### 2\. Create a Virtual Environment
 
-### 2. Verify the Installation
--   In the terminal, run:
-    ```bash
-    ffmpeg -version
-    ```
--   The output should confirm that FFmpeg is installed correctly.
+It's highly recommended to use a virtual environment to manage dependencies.
 
-### Optional: Compile from Source
-If the repository version is outdated or you need specific features, you can compile FFmpeg from its source code. Follow the official [FFmpeg Compilation Guide](https://trac.ffmpeg.org/wiki/CompilationGuide) for detailed instructions tailored to your distribution.
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# macOS & Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3\. Install Dependencies
+
+Install all the required Python packages using the `requirements.txt` file.
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4\. Configure Your API Keys
+
+[cite\_start]Open the `NLP.py` file and replace the empty placeholder strings with your actual API keys[cite: 1].
+
+```python
+# NLP.py - Lines 21-23
+
+# IMPORTANT: Replace these with your actual API keys
+GROQ_API_KEY = "YOUR_GROQ_API_KEY_HERE"
+COHERE_API_KEY = "YOUR_COHERE_API_KEY_HERE"
+GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE"
+```
+
+### 5\. Configure FFmpeg Path (Crucial Step\!)
+
+The script needs to know where the FFmpeg executable is located. [cite\_start]The current code has a **hardcoded path for Windows**[cite: 1]. You **must** update this if your path is different or if you are on macOS or Linux.
+
+  * **If you added FFmpeg to your system PATH (recommended)**, you can try commenting out or deleting the hardcoded lines. The `pydub` library often finds it automatically.
+  * [cite\_start]**If not**, update the paths in `NLP.py` to point to your FFmpeg executables[cite: 1].
+
+<!-- end list -->
+
+```python
+# NLP.py - Lines 14-15 and 33-36
+
+# For Windows (adjust if your path is different)
+AudioSegment.converter = r"C:\ffmpeg\bin\ffmpeg.exe"
+AudioSegment.ffprobe = r"C:\ffmpeg\bin\ffprobe.exe"
+
+# You might need to adjust these paths as well
+ffmpeg_path = r"C:\ffmpeg\bin\ffmpeg.exe"
+ffprobe_path = r"C:\ffmpeg\bin\ffprobe.exe"
+```
+
+For **macOS/Linux**, the paths are typically found automatically if installed via a package manager. If not, you may need to find them (`which ffmpeg`) and set the path accordingly (e.g., `/usr/bin/ffmpeg` or `/opt/homebrew/bin/ffmpeg`).
+
+### 6\. Run the Application
+
+[cite\_start]Once the setup is complete, run the Flask application[cite: 1]:
+
+```bash
+python NLP.py
+```
+
+Open your web browser and navigate to **https://www.google.com/search?q=http://127.0.0.1:5000** to start using the chat assistant\!
+
+-----
+
+## 📝 How to Use
+
+1.  [cite\_start]**Select an AI**: Choose your preferred AI model (Gemini, Cohere, or Groq) using the buttons at the top[cite: 1].
+2.  [cite\_start]**Upload a File**: Drag and drop a PDF, image, or audio file into the upload box, or click to select one[cite: 1].
+3.  **Wait for Processing**: The file will be uploaded and processed. [cite\_start]For audio, transcription may take a moment[cite: 1].
+4.  **Start Chatting**: Once the file is ready, the input box will be enabled. [cite\_start]Type your question and press Enter or click the "Send" button[cite: 1].
+5.  [cite\_start]**Manage Chats**: Use the history panel on the left to switch between different chat sessions or clear your history[cite: 1].
+
+<!-- end list -->
+
+```
+```
